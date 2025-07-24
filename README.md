@@ -59,7 +59,7 @@ Main code changes:
 * New widget `ButtonSubscriber` for force alerts.  
 * Modified `VizFragment.java` and layout `fragment_viz.xml`.  
 * Replaced the SSH tab with the MQTT client tab.
-
+---
 
 ## MQTT–ROS Bridge Setup
 
@@ -76,7 +76,7 @@ cd ..
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source devel/setup.bash
-
+---
 Make sure paho-mqtt is installed in your Python environment (used by the bridge):
 
 pip install paho-mqtt
@@ -104,7 +104,7 @@ bridge:
     msg_type: std_msgs/String
     topic_from: teleop/cmd_vel
     topic_to: /cmd_vel
-
+---
 Result:
 
     /end_effector published by ROS will appear on the MQTT topic robot/end_effector.
