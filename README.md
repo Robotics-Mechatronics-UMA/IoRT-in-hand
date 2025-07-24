@@ -65,9 +65,7 @@ Main code changes:
 
 In this project, ROS and MQTT are used together: ROS handles local communication with sensors and robotic systems, while MQTT enables remote interaction (e.g. from mobile devices or cloud-based digital twins). To bridge messages between these two protocols, we use the `mqtt_bridge` package.
 
-### 1. Install the MQTT–ROS bridge
-
-Clone the official package into your ROS workspace:
+### 1 · Install the MQTT–ROS bridge
 
 ```bash
 cd ~/catkin_ws/src
@@ -76,16 +74,17 @@ cd ..
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 source devel/setup.bash
----
-Make sure paho-mqtt is installed in your Python environment (used by the bridge):
+```
 
+Make sure paho‑mqtt is installed in your Python environment (used by the bridge):
+```
 pip install paho-mqtt
+```
 
 ### 2 · Create a bridge configuration
 
-Create `bridge.yaml` in any ROS package:
-
-```yaml
+Create a file called bridge.yaml in any ROS package:
+```
 mqtt:
   client:
     protocol: mqtt
@@ -104,29 +103,35 @@ bridge:
     msg_type: std_msgs/String
     topic_from: teleop/cmd_vel
     topic_to: /cmd_vel
----
-Result:
 
-    /end_effector published by ROS will appear on the MQTT topic robot/end_effector.
+```
+Result
+Direction	Effect
+| Direction  | Effect                                                                  |
+| ---------- | ----------------------------------------------------------------------- |
+| ROS ➜ MQTT | `/end_effector` is published to the MQTT topic `robot/end_effector`.    |
+| MQTT ➜ ROS | Messages on `teleop/cmd_vel` are re‑published to `/cmd_vel` inside ROS. |
 
-    Velocity commands published on teleop/cmd_vel in MQTT will be re‑published to /cmd_vel inside ROS.
+### 3 · Launch the bridge
 
-3 · Launch the bridge
+```
 
 roslaunch mqtt_bridge mqtt_bridge.launch \
         config_file:=/absolute/path/to/bridge.yaml
+
+
+```
+
 
 The specified ROS and MQTT topics are now transparently connected.
 
 ## Preliminary Results
 
-Our architecture was validated in a 2 300 km tele‑ultrasound trial where a 6‑DOF robot scanned a phantom entirely under remote control.
-Latency, contact‑force accuracy, and user‑experience metrics confirm suitability for both emergency telemedicine and routine remote diagnostics.
-A manuscript describing these results is currently under review (Sensors, MDPI, SI on Smart Sensing Technologies for Human‑Centred Healthcare).
+Our architecture was validated in a 2 300 km tele‑ultrasound trial where a 6‑DOF robot scanned a phantom entirely under remote control. Latency, contact‑force accuracy, and user‑experience metrics confirm suitability for both emergency telemedicine and routine remote diagnostics. A manuscript describing these results is currently under review (Sensors, MDPI, SI on Smart Sensing Technologies for Human‑Centred Healthcare).
 
 ### Article Summary
 
-We propose a novel Internet of Robotic Things (IoRT) framework for tele‑ultrasound.
+We propose a novel Internet of Robotic Things (IoRT) framework for tele‑ultrasound.
 
 IoRT‑in‑Hand integrates:
 
@@ -138,8 +143,7 @@ IoRT‑in‑Hand integrates:
 
     an embedded mini‑PC with Wi‑Fi/4G
 
-A dedicated Android app merges ROS and MQTT on a single handset, providing joystick tele‑operation, Digital‑Twin visualisation, and real‑time feedback.
-To our knowledge, this is the first smartphone‑rendered Digital Twin for medical robotics, enabled by a hybrid Edge–Cloud architecture.
+A dedicated Android app merges ROS and MQTT on a single handset, providing joystick tele‑operation, Digital‑Twin visualisation, and real‑time feedback. To our knowledge, this is the first smartphone‑rendered Digital Twin for medical robotics, enabled by a hybrid Edge–Cloud architecture.
 
 ### UI Snapshots
 <p align="center"> <img src="images/ad-hocRM.jpg" width="200" alt="Virtual joysticks"/> </p> <p align="center"> <img src="images/app-1.png" width="450" alt="Main activity (DT / US toggle)"/> </p> <p align="center"> <img src="images/mqttM.png" width="210" alt="MQTT client tab"/> </p>
@@ -156,5 +160,8 @@ To our knowledge, this is the first smartphone‑rendered Digital Twin for medic
 
 ## References
 
-Rottmann, N., Studt, N., Ernst, F., & Rueckert, E. (2020).
+Rottmann, N., Studt, N., Ernst, F., & Rueckert, E. (2020).
 ROS‑mobile: An Android application for the Robot Operating System. arXiv 2001.02781.
+
+
+
