@@ -4,6 +4,11 @@
 
 This repository contains the source code developed for integrating the **IoRT-in-Hand** architecture, a system designed to enable the remote operation of robotic manipulators through a smartphone that hosts both **ROS nodes** and **MQTT clients**. The application facilitates seamless control while offering comprehensive visual feedback by integrating video streams from multiple sources—including both **IP-based cameras** and **ROS-native image topics**—within a unified mobile interface.
 
+<p align="center">
+  <img src="CAD/IoRT-in-hand.png" width="450" alt="IoRT‑in‑Hand CAD overview"/>
+</p>
+
+
 A key innovation introduced by this system is the **real-time rendering of a digital twin (DT) directly on the smartphone screen**, allowing the operator to preview robotic motions in a virtual environment (via Verosim) before executing them in the physical workspace. This enhances situational awareness, safety, and training capabilities.
 
 The mobile app connects to a **cloud-based MQTT broker**, which circumvents common **NAT traversal issues** inherent to ROS 1 and ROS 2, enabling reliable communication across public and private networks.
@@ -146,17 +151,17 @@ IoRT‑in‑Hand integrates:
 A dedicated Android app merges ROS and MQTT on a single handset, providing joystick tele‑operation, Digital‑Twin visualisation, and real‑time feedback. To our knowledge, this is the first smartphone‑rendered Digital Twin for medical robotics, enabled by a hybrid Edge–Cloud architecture.
 
 ### UI Snapshots
-<p align="center"> <img src="images/ad-hocRM.jpg" width="200" alt="Virtual joysticks"/> </p> <p align="center"> <img src="images/app-1.png" width="450" alt="Main activity (DT / US toggle)"/> </p> <p align="center"> <img src="images/mqttM.png" width="210" alt="MQTT client tab"/> </p>
+<p align="center"> <img src="images/ad-hocRM.jpg" width="200" alt="Virtual joysticks"/> </p>  <p align="center"> <img src="images/mqttM.png" width="210" alt="MQTT client tab"/> </p>
 
 ## How to Use
 
-    Install the Android app on the smartphone.
+   1. Install the Android app on the smartphone.
 
-    Connect the phone, the robot PC, and the Dew device to the same ZeroTier VPN.
+   2. Connect the phone, the robot PC, and the Dew device to the same ZeroTier VPN.
 
-    Launch the ROS package in FIS/ on the robot computer.
+   3. Launch the ROS package in FIS/ on the robot computer.
 
-    The phone can now issue velocity commands and receive video + Digital‑Twin streams.
+   4. The phone can now issue velocity commands and receive video + Digital‑Twin streams.
 
 ## References
 
