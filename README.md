@@ -81,12 +81,11 @@ Make sure paho-mqtt is installed in your Python environment (used by the bridge)
 
 pip install paho-mqtt
 
-### 2. Create a bridge configuration
+### 2 · Create a bridge configuration
 
-Inside your ROS package or workspace, create a YAML file (e.g. bridge.yaml) to define the topics to bridge.
+Create `bridge.yaml` in any ROS package:
 
-Example configuration:
-
+```yaml
 mqtt:
   client:
     protocol: mqtt
@@ -94,87 +93,68 @@ mqtt:
     port: 1883
 
 bridge:
+  # ROS → MQTT
   - factory: mqtt_bridge.bridge:RosToMqttBridge
     msg_type: std_msgs/String
     topic_from: /end_effector
     topic_to: robot/end_effector
 
+  # MQTT → ROS
   - factory: mqtt_bridge.bridge:MqttToRosBridge
     msg_type: std_msgs/String
     topic_from: teleop/cmd_vel
     topic_to: /cmd_vel
 
-This configuration:
+Result:
 
-    Publishes /end_effector from ROS into MQTT as robot/end_effector
+    /end_effector published by ROS will appear on the MQTT topic robot/end_effector.
 
-    Subscribes to teleop/cmd_vel on MQTT and republishes it to /cmd_vel in ROS
+    Velocity commands published on teleop/cmd_vel in MQTT will be re‑published to /cmd_vel inside ROS.
 
-### 3. Launch the bridge
+3 · Launch the bridge
 
-Use the provided launch file or create one:
+roslaunch mqtt_bridge mqtt_bridge.launch \
+        config_file:=/absolute/path/to/bridge.yaml
 
-roslaunch mqtt_bridge mqtt_bridge.launch config_file:=/path/to/bridge.yaml
-
-Now your MQTT and ROS topics will be transparently connected.
-
-
----
----
+The specified ROS and MQTT topics are now transparently connected.
 
 ## Preliminary Results
 
-The proposed system has been evaluated in a multi-site experimental setup, validating its performance for real-world telemedicine applications. The architecture was tested through long-range teleoperation trials—spanning over **2,300 km across Europe**—in which a **6-DOF robotic arm** executed an **ultrasound scanning procedure** controlled remotely via the IoRT-in-Hand interface.
-
-Performance metrics such as **latency**, **sensor feedback quality**, and **user experience** were measured, demonstrating the system’s robustness and applicability in both **emergency scenarios** and **remote diagnostics**. All components of the system—including ROS nodes, MQTT messaging, visualisation pipelines, and joystick control—were exercised under realistic network conditions.
-
-These results and the underlying architecture are detailed in a submitted manuscript currently under review in *Sensors (MDPI), Special Issue: Smart Sensing Technologies for Human-Centered Healthcare*. Further documentation will be made available upon acceptance.
-
----
+Our architecture was validated in a 2 300 km tele‑ultrasound trial where a 6‑DOF robot scanned a phantom entirely under remote control.
+Latency, contact‑force accuracy, and user‑experience metrics confirm suitability for both emergency telemedicine and routine remote diagnostics.
+A manuscript describing these results is currently under review (Sensors, MDPI, SI on Smart Sensing Technologies for Human‑Centred Healthcare).
 
 ### Article Summary
 
-This work introduces a novel **Internet of Robotic Things (IoRT)** framework tailored for **tele-ultrasound applications** in remote, hard-to-access, or hazardous environments. At its core is the **IoRT-in-Hand**—a smart, lightweight end-effector that physically bridges the specialist’s expertise with the robot's execution layer.
+We propose a novel Internet of Robotic Things (IoRT) framework for tele‑ultrasound.
 
-The device integrates the following components into a compact, plug-and-play unit:
+IoRT‑in‑Hand integrates:
 
-- A **medical ultrasound probe**
-- An **RGB camera with pan/tilt servos**
-- A **force–torque sensor** for contact awareness
-- An onboard **mini-PC with wireless connectivity**
+    a medical ultrasound probe
 
-On the software side, an open-source **Android application** is introduced, enabling intuitive control through the integration of **ROS** and **MQTT** within a single mobile interface.
+    an RGB camera with pan/tilt servos
 
-To the best of our knowledge, this is the **first implementation of a smartphone-rendered Digital Twin for robotic systems**, empowering remote operators—including non-engineers—to interact with and monitor the robot's environment in real time. The system leverages a **hybrid Edge–Cloud architecture**, combining modular hardware, real-time actuation, and cross-platform communication to deliver scalable and accessible robotic telemedicine.
+    a 6‑axis force–torque sensor
 
----
-<p align="center">
-  <img src="images/ad-hocRM.jpg" width="200" alt="Joystick UI"/>
-</p>
+    an embedded mini‑PC with Wi‑Fi/4G
 
-<p align="center">
-  <!-- Convert the PDF page to PNG and use the PNG here -->
-  <img src="images/app-1.png"  width="450" alt="Main Activity"/>
-  <!-- OR, if you prefer to leave it as a PDF: -->
-  <!-- <a href="images/app-1.pdf">Main Activity (PDF)</a> -->
-</p>
+A dedicated Android app merges ROS and MQTT on a single handset, providing joystick tele‑operation, Digital‑Twin visualisation, and real‑time feedback.
+To our knowledge, this is the first smartphone‑rendered Digital Twin for medical robotics, enabled by a hybrid Edge–Cloud architecture.
 
-<p align="center">
-  <img src="images/mqttM.png"  width="210" alt="MQTT tab"/>
-</p>
+### UI Snapshots
+<p align="center"> <img src="images/ad-hocRM.jpg" width="200" alt="Virtual joysticks"/> </p> <p align="center"> <img src="images/app-1.png" width="450" alt="Main activity (DT / US toggle)"/> </p> <p align="center"> <img src="images/mqttM.png" width="210" alt="MQTT client tab"/> </p>
 
+## How to Use
 
----
+    Install the Android app on the smartphone.
 
-## How to use
+    Connect the phone, the robot PC, and the Dew device to the same ZeroTier VPN.
 
-After installing the app on the smartphone and connecting the VPN (Zerotier) to both the robot system and the Dew device in the IoRT-in-Hand, all components will be interconnected.
+    Launch the ROS package in FIS/ on the robot computer.
 
-Once the ROS package is launched (available under the **FIS** directory), the smartphone is able to interact with and velocity-control the robot's end-effector.
-
----
+    The phone can now issue velocity commands and receive video + Digital‑Twin streams.
 
 ## References
 
-Rottmann, N., Studt, N., Ernst, F., & Rueckert, E. (2020). **ROS‑mobile: An Android application for the Robot Operating System**. *arXiv preprint* arXiv:2011.02781.
-
+Rottmann, N., Studt, N., Ernst, F., & Rueckert, E. (2020).
+ROS‑mobile: An Android application for the Robot Operating System. arXiv 2001.02781.
