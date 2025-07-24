@@ -1,0 +1,15 @@
+# requirements.txt – Dependencies for ArUco Pose Publisher
+
+# Core numerical and image processing libraries
+numpy>=1.21
+opencv-python>=4.5
+
+# MQTT client for publishing transformations
+paho-mqtt>=1.6
+
+# ROS Python client library (must be sourced from ROS 1 environment)
+# Note: These are typically installed with your ROS distribution
+rospy
+std_msgs
+geometry_msgs
+

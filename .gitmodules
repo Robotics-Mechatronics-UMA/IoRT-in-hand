@@ -1,0 +1,3 @@
+[submodule "Smartphone (remote control)/Adhoc-ROS-Mobile"]
+	path = Smartphone (remote control)/Adhoc-ROS-Mobile
+	url = https://github.com/jbravoMlg/Adhoc-ROS-Mobile.git
