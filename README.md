@@ -135,13 +135,13 @@ We propose a novel Internet of Robotic Things (IoRT) framework for tele‑
 
 IoRT‑in‑Hand integrates:
 
-    a medical ultrasound probe
+    - a medical ultrasound probe
 
-    an RGB camera with pan/tilt servos
+    - an RGB camera with pan/tilt servos
 
-    a 6‑axis force–torque sensor
+    - a 6‑axis force–torque sensor
 
-    an embedded mini‑PC with Wi‑Fi/4G
+    - an embedded mini‑PC with Wi‑Fi/4G
 
 A dedicated Android app merges ROS and MQTT on a single handset, providing joystick tele‑operation, Digital‑Twin visualisation, and real‑time feedback. To our knowledge, this is the first smartphone‑rendered Digital Twin for medical robotics, enabled by a hybrid Edge–Cloud architecture.
 
