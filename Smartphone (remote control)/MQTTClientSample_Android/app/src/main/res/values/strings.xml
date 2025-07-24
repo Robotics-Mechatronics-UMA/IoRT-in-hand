@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">MQTT client</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="connect_fragment_label">Connect Fragment</string>
+    <string name="client_fragment_label">Client Fragment</string>
+
+    <string name="button_connect_text">Connect</string>
+    <string name="button_prefill_text">Prefill with a list containing the joint values</string>
+    <string name="button_prefill_broker">Prefill with default broker</string>
+    <string name="button_prefill_client">Prefill</string>
+    <string name="button_prefill_text2">Prefill with a list containing the cartesian coordinates for the end-effector</string>
+    <string name="button_prefill_client2">Prefill</string>
+
+    <string name="rosAccess">ImageButton</string>
+
+    <string name="button_clean_text">Clean</string>
+
+    <string name="server_uri_text">Server URI</string>
+    <string name="client_id_text">Client ID</string>
+    <string name="username_text">Username</string>
+    <string name="password_text">Password</string>
+    <string name="type_robot_text">Robot</string>
+    <string name="type_robot_text2">Type: Cobot or UGV (RT for real time)</string> <!-- RT: Real Time -->
+
+    <string name="button_stop">STOP the UGV</string>
+    <string name="button_prefill_cmd">Prefill with geometry_msgs/Twist format</string>
+
+    <string name="button_disconnect_text">Disconnect</string>
+    <string name="button_publish_text">Publish</string>
+    <string name="button_subscribe_text">Subscribe</string>
+    <string name="button_unsubscribe_text">Unsubscribe</string>
+    <string name="topic_text">Topic</string>
+    <string name="message">Message</string>
+    <string name="type_message">data:msg</string>
+    <string name="chooser_title">ROS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Elbow">Elbow</string>
+    <string name="Shoulder">Shoulder</string>
+    <string name="Base">Base</string>
+    <string name="Wrist1">Wrist 1</string>
+    <string name="Wrist2">Wrist 2</string>
+    <string name="Wrist3">Wrist 3</string>
+
+
+</resources>

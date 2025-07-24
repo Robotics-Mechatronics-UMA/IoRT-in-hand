@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/vis_cam"
+        android:layout_width="match_parent"
+        android:layout_height="289dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/url"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/left_button"
+        android:layout_width="110dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="8dp"
+        android:text="LEFT (servo B)"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/up_button" />
+
+    <Button
+        android:id="@+id/down_button"
+        android:layout_width="110dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="84dp"
+        android:text="DOWN (servo W)"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/up_button" />
+
+    <Button
+        android:id="@+id/up_button"
+        android:layout_width="110dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="1dp"
+        android:text="UP    (servo W)"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vis_cam" />
+
+    <Button
+        android:id="@+id/right_button"
+        android:layout_width="110dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:text="RIGHT (servo B)"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/up_button" />
+
+    <Button
+        android:id="@+id/cam_con"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:text="ip cam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/url"
+        android:layout_width="215dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:hint="socket, image_scale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toEndOf="@+id/cam_con"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="Back"
+        android:textColorHighlight="#E40F0F"
+        app:backgroundTint="#9045E6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/right_button"
+        app:layout_constraintStart_toEndOf="@+id/left_button"
+        app:layout_constraintTop_toBottomOf="@+id/up_button" />
+
+    <TextView
+        android:id="@+id/textB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/right_button"
+        app:layout_constraintStart_toEndOf="@+id/left_button"
+        app:layout_constraintTop_toBottomOf="@+id/up_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

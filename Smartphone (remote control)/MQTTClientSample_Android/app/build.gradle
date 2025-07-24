@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+
+
+
+    //id 'kotlin-android-extensions'
+
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 33
+
+    buildFeatures {
+        viewBinding true
+    }
+
+
+
+    defaultConfig {
+        applicationId "com.example.mqttkotlinsample"
+        minSdkVersion 24
+        targetSdkVersion 33 // it should always be the same as compileSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    namespace 'com.example.mqttkotlinsample'
+}
+
+
+
+/*
+project.configurations.all {
+    resolutionStrategy {
+        //force 'androidx.work:work-runtime:2.7.1'
+        //force 'androidx.work:work-runtime-ktx:2.7.0'
+        force 'androidx.work:work-runtime-ktx:2.7.1'
+        //implementation("androidx.work:work-runtime-ktx:$work_version")
+    }
+}*/
+
+dependencies {
+
+    //androidx.work:work-*:2.7.0-alpha05
+    // (Java only)
+    //implementation("androidx.work:work-*:2.7.0-alpha05")
+
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+    ///implementation("androidx.work:work-*:2.7.0-alpha05")
+
+
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    testImplementation 'junit:junit:'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+    // NUEVAS LIBRERIAS TRAS DESCUBRIR QUE MQTT NO FUNCIONA PARA VERSIONES POSTERIORES A LA 12.
+    //new mqtt library that supports android 12
+/*
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.hannesa2:paho.mqtt.android:3.3.5'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'*/
+}
