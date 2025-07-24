@@ -148,18 +148,21 @@ On the software side, an open-source **Android application** is introduced, enab
 To the best of our knowledge, this is the **first implementation of a smartphone-rendered Digital Twin for robotic systems**, empowering remote operators—including non-engineers—to interact with and monitor the robot's environment in real time. The system leverages a **hybrid Edge–Cloud architecture**, combining modular hardware, real-time actuation, and cross-platform communication to deliver scalable and accessible robotic telemedicine.
 
 ---
+<p align="center">
+  <img src="images/ad-hocRM.jpg" width="200" alt="Joystick UI"/>
+</p>
 
-## UI snapshots
+<p align="center">
+  <!-- Convert the PDF page to PNG and use the PNG here -->
+  <img src="images/app-1.png"  width="450" alt="Main Activity"/>
+  <!-- OR, if you prefer to leave it as a PDF: -->
+  <!-- <a href="images/app-1.pdf">Main Activity (PDF)</a> -->
+</p>
 
 <p align="center">
-  <img src="images/ad-hocRM.jpg" width="200" alt="Joystick UI" />
+  <img src="images/mqttM.png"  width="210" alt="MQTT tab"/>
 </p>
-<p align="center">
-  <img src="images/app.pdf" width="450" alt="Main Activity" />
-</p>
-<p align="center">
-  <img src="images/mqttM.png" width="210" alt="MQTT tab" />
-</p>
+
 
 ---
 
