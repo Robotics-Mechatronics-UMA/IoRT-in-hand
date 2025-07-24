@@ -5,7 +5,7 @@
 This repository contains the source code developed for integrating the **IoRT-in-Hand** architecture, a system designed to enable the remote operation of robotic manipulators through a smartphone that hosts both **ROS nodes** and **MQTT clients**. The application facilitates seamless control while offering comprehensive visual feedback by integrating video streams from multiple sources—including both **IP-based cameras** and **ROS-native image topics**—within a unified mobile interface.
 
 <p align="center">
-  <img src="CAD/IoRT-in-hand.png" width="450" alt="IoRT‑in‑Hand CAD overview"/>
+  <img src="CAD/fig2.png" width="450" alt="IoRT‑in‑Hand CAD overview"/>
 </p>
 
 
