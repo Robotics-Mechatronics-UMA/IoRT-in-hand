@@ -150,8 +150,14 @@ IoRT‑in‑Hand integrates:
 
 A dedicated Android app merges ROS and MQTT on a single handset, providing joystick tele‑operation, Digital‑Twin visualisation, and real‑time feedback. To our knowledge, this is the first smartphone‑rendered Digital Twin for medical robotics, enabled by a hybrid Edge–Cloud architecture.
 
-### UI Snapshots
-<p align="center"> <img src="images/ad-hocRM.jpg" width="200" alt="Virtual joysticks"/> </p>  <p align="center"> <img src="images/mqttM.png" width="210" alt="MQTT client tab"/> </p>
+### UI Snapshots
+
+<p align="center">
+  <img src="images/ad-hocRM.jpg" width="200" alt="Virtual joysticks"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="images/mqttM.png"   width="210" alt="MQTT client tab"/>
+</p>
+
 
 ## How to Use
 
